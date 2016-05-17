@@ -1,7 +1,13 @@
 *.class
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+*.classpath
+*.project
+*.iml
+.*
+target/
+jsclient/
+eclipse-target/
+**/src/generated/
+**/tmp/
 
 # Package Files #
 *.jar
