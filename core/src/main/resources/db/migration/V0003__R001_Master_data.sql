@@ -1,0 +1,4 @@
+INSERT INTO RESTAURANT(id, modificationCounter, restaurantName, address, mainLanguage) VALUES (0, 0, 'Sample Restaurant', 'Sample Street, Sample City', 'english');
+INSERT INTO RESTAURANT(id, modificationCounter, restaurantName, address, mainLanguage) VALUES (1, 0, 'Sample Restaurant2', 'Sample Street, Sample City', 'english');
+INSERT INTO RESTAURANT(id, modificationCounter, restaurantName, address, mainLanguage) VALUES (2, 0, 'Sample Restaurant3', 'Sample Street, Sample City', 'english');
+INSERT INTO RESTAURANT(id, modificationCounter, restaurantName, address, mainLanguage) VALUES (3, 0, 'Sample Restaurant4', 'Sample Street, Sample City', 'english');
