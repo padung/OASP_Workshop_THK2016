@@ -2,6 +2,7 @@ package io.oasp.application.restaurantmanagement.restaurantmanagement.service.ap
 
 import io.oasp.application.restaurantmanagement.restaurantmanagement.common.api.Restaurant;
 import io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.RestaurantManagement;
+import io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.to.RestaurantCto;
 import io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.to.RestaurantEto;
 
 import javax.inject.Inject;
@@ -25,7 +26,7 @@ public class RestaurantManagementRestServiceImpl {
 
     @GET
     @Path("/restaurant/{id}")
-    public Restaurant getRestaurant(@PathParam("id") long id){
+    public RestaurantCto getRestaurant(@PathParam("id") long id){
 
         return this.restaurantManagement.findRestaurant(id);
     }

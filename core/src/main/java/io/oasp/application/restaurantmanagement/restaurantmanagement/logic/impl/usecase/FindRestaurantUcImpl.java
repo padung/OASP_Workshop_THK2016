@@ -2,9 +2,13 @@ package io.oasp.application.restaurantmanagement.restaurantmanagement.logic.impl
 
 import io.oasp.application.restaurantmanagement.general.logic.api.UseCase;
 import io.oasp.application.restaurantmanagement.general.logic.base.AbstractUc;
+import io.oasp.application.restaurantmanagement.restaurantmanagement.common.api.Employee;
 import io.oasp.application.restaurantmanagement.restaurantmanagement.common.api.Restaurant;
+import io.oasp.application.restaurantmanagement.restaurantmanagement.dataaccess.api.EmployeeEntity;
 import io.oasp.application.restaurantmanagement.restaurantmanagement.dataaccess.api.RestaurantEntity;
 import io.oasp.application.restaurantmanagement.restaurantmanagement.dataaccess.api.dao.RestaurantDao;
+import io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.to.EmployeeEto;
+import io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.to.RestaurantCto;
 import io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.to.RestaurantEto;
 import io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.usecase.FindRestaurantUc;
 import net.sf.mmm.util.lang.api.Usecase;
@@ -27,9 +31,18 @@ public class FindRestaurantUcImpl extends AbstractUc implements FindRestaurantUc
 
     @Override
     @PermitAll
-    public Restaurant findRestaurant(Long id) {
+    public RestaurantCto findRestaurant(Long id) {
 
-        Restaurant returnRestaurant = getBeanMapper().map(this.restaurantDao.findOne(id), RestaurantEto.class);
+        RestaurantEntity restaurant = this.restaurantDao.findOne(id);
+        RestaurantEto returnRestaurantEto = getBeanMapper().map(restaurant, RestaurantEto.class);
+
+        List<EmployeeEntity> employees = restaurant.getEmployees();
+        List<EmployeeEto> returnEmployeeEtos = getBeanMapper().mapList(employees, EmployeeEto.class);
+
+        RestaurantCto returnRestaurant = new RestaurantCto();
+        returnRestaurant.setEmployees(returnEmployeeEtos);
+        returnRestaurant.setRestaurant(returnRestaurantEto);
+
         return returnRestaurant;
     }
 

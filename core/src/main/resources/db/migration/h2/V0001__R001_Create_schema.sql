@@ -15,15 +15,17 @@ CREATE TABLE RESTAURANT (
   mainLanguage VARCHAR(255)
 );
 
+ALTER TABLE RESTAURANT ADD CONSTRAINT PK_RESTAURANT PRIMARY KEY(id);
+
 -- *** BinaryObject (BLOBs) ***
-CREATE TABLE BINARYOBJECT (
-  id BIGINT NOT NULL,
-  modificationCounter INTEGER NOT NULL,
-  data BLOB(2147483647),
-  size BIGINT NOT NULL,
-  mimetype VARCHAR(255),
-  PRIMARY KEY (ID)
-);
+--CREATE TABLE BINARYOBJECT (
+--  id BIGINT NOT NULL,
+--  modificationCounter INTEGER NOT NULL,
+--  data BLOB(2147483647),
+--  size BIGINT NOT NULL,
+--  mimetype VARCHAR(255),
+--  PRIMARY KEY (ID)
+--);
 
 -- *** RevInfo (Commit log for envers audit trail) ***
 CREATE TABLE REVINFO(

@@ -3,6 +3,7 @@ package io.oasp.application.restaurantmanagement.restaurantmanagement.logic.impl
 import io.oasp.application.restaurantmanagement.general.logic.base.AbstractComponentFacade;
 import io.oasp.application.restaurantmanagement.restaurantmanagement.common.api.Restaurant;
 import io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.RestaurantManagement;
+import io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.to.RestaurantCto;
 import io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.to.RestaurantEto;
 import io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.usecase.FindRestaurantUc;
 import io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.usecase.ManageRestaurantUc;
@@ -26,7 +27,7 @@ public class RestaurantManagementImpl extends AbstractComponentFacade implements
     ManageRestaurantUc manageRestaurantUc;
 
     @Override
-    public Restaurant findRestaurant(Long id) {
+    public RestaurantCto findRestaurant(Long id) {
         return this.findRestaurantUc.findRestaurant(id);
     }
 

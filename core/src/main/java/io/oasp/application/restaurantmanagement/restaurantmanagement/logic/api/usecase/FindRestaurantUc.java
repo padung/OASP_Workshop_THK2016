@@ -2,6 +2,7 @@ package io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.
 
 import io.oasp.application.restaurantmanagement.restaurantmanagement.common.api.Restaurant;
 import io.oasp.application.restaurantmanagement.restaurantmanagement.dataaccess.api.RestaurantEntity;
+import io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.to.RestaurantCto;
 import io.oasp.application.restaurantmanagement.restaurantmanagement.logic.api.to.RestaurantEto;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
  */
 public interface FindRestaurantUc {
 
-    Restaurant findRestaurant(Long id);
+    RestaurantCto findRestaurant(Long id);
 
     List<Restaurant> findAll();
 
